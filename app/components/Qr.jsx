@@ -5,6 +5,7 @@ import { useState, useRef } from "react";
 
 const Qr = () => {
   const [qrValue, setQrValue] = useState("Nothing encoded");
+  const [defaultValue, setDefaultValue] = useState("");
   const labelRef = useRef(null);
   return (
     <section className="flex flex-col items-center w-64 ">
@@ -30,7 +31,7 @@ const Qr = () => {
           className=" m-1"
           viewBox="0 0 18 18"
           onClick={() => {
-            setQrValue("https://www.instagram.com/");
+            setDefaultValue("https://www.instagram.com/");
             labelRef.current.innerHTML = "Enter the username";
           }}
         >
@@ -45,7 +46,7 @@ const Qr = () => {
           className=" m-1"
           viewBox="0 0 18 18"
           onClick={() => {
-            setQrValue("https://wa.me/");
+            defaultValue("https://wa.me/");
             labelRef.current.innerHTML = "Enter the mobile number";
           }}
         >
@@ -87,7 +88,7 @@ const Qr = () => {
           type="text"
           id="qrText"
           placeholder="Enter the content..."
-          onChange={(e) => setQrValue(e.target.value)}
+          onChange={(e) => setQrValue(defaultValue + e.target.value)}
         />
       </div>
     </section>
