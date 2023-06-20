@@ -11,9 +11,16 @@ const Qr = () => {
   const qrRef = useRef(null);
   return (
     <section className="flex flex-col items-center w-64 ">
+      <div className="mt-2">
+        <p className="text-xs font-extralight text-slate-600 text-center">
+          You can either put your own content to 
+          encode or you can use the below buttons
+          to encode your social media links.
+        </p>
+      </div>
       <div
         className="w-48 h-48 bg-white border-2 border-slate-950 
-                      mt-8 rounded-md p-1"
+                      mt-4 rounded-md p-1"
         ref={qrRef}
       >
         <QRCode
@@ -98,7 +105,7 @@ const Qr = () => {
         </svg>
 
       </div>
-      <div className="flex flex-col mt-5 w-64">
+      <div className=" flex flex-col mt-3 w-64 mx-2 px-4">
         <label
           className="text-slate-950 font-semibold text-md mb-1"
           htmlFor="qrText"

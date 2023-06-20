@@ -17,6 +17,7 @@
 }
 
 body {
+  height: 100vh;
   box-sizing: border-box;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
