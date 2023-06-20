@@ -57,7 +57,7 @@ const Qr = () => {
           viewBox="0 0 16 16"
           onClick={() => {
             setDefaultValue("https://github.com/");
-            labelRef.current.innerHTML = "Enter the user name";
+            labelRef.current.innerHTML = "Enter the username";
             inputRef.current.placeholder = "eg: yourname";
           }}
         >
