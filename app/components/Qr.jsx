@@ -42,6 +42,8 @@ const Qr = () => {
           viewBox="0 0 16 16"
           onClick={() => {
             setDefaultValue("https://www.linkedin.com/in/");
+            inputRef.current.value = "";
+            setQrValue(defaultValue)
             labelRef.current.innerHTML = "Enter the username";
             inputRef.current.placeholder = "eg: first-name-last-name";
           }}
@@ -57,6 +59,8 @@ const Qr = () => {
           viewBox="0 0 16 16"
           onClick={() => {
             setDefaultValue("https://github.com/");
+            inputRef.current.value = "";
+            setQrValue(defaultValue)
             labelRef.current.innerHTML = "Enter the username";
             inputRef.current.placeholder = "eg: yourname";
           }}
@@ -71,6 +75,8 @@ const Qr = () => {
           viewBox="0 0 16 16"
           onClick={() => {
             setDefaultValue("https://wa.me/");
+            inputRef.current.value = "";
+            setQrValue(defaultValue)
             labelRef.current.innerHTML = "Enter the mobile number";
             inputRef.current.placeholder = "eg: 919048959016";
           }}
@@ -85,6 +91,8 @@ const Qr = () => {
           viewBox="0 0 16 16"
           onClick={() => {
             setDefaultValue("https://youtube.com/");
+            inputRef.current.value = "";
+            setQrValue(defaultValue)
             labelRef.current.innerHTML = "Enter the channel name";
             inputRef.current.placeholder = "eg: @channelname";
           }}
@@ -99,6 +107,8 @@ const Qr = () => {
           viewBox="0 0 16 16"
           onClick={() => {
             setDefaultValue("https://www.instagram.com/");
+            inputRef.current.value = "";
+            setQrValue(defaultValue)
             labelRef.current.innerHTML = "Enter the username";
             inputRef.current.placeholder = "eg: your_username";
           }}
@@ -113,6 +123,8 @@ const Qr = () => {
           height={30}
           onClick={() => {
             setDefaultValue("upi://pay?pa=");
+            inputRef.current.value = "";
+            setQrValue(defaultValue)
             labelRef.current.innerHTML = "Enter UPI id";
             inputRef.current.placeholder = "eg: yourname@upi";
           }}
