@@ -12,8 +12,8 @@ const Qr = () => {
   const inputRef = useRef(null);
   const qrRef = useRef(null);
   return (
-    <section className="flex flex-col items-center w-64 ">
-      <div className="mt-2">
+    <section className="flex flex-col items-center w-64">
+      <div className="mt-2 px-2">
         <p className="text-xs font-extralight text-slate-600 text-center">
           You can either put your own content to 
           encode or you can use the below buttons

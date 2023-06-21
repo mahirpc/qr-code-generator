@@ -2,7 +2,7 @@ import Qr from './components/Qr'
 
 export default function Home() {
   return (
-    <main className=' mx-auto '>
+    <main className=' self-center px-2 '>
       <Qr />
     </main>
   )
