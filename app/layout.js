@@ -8,7 +8,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="flex flex-col justify-start align-middle pt-2">
+      <body className="flex flex-col justify-center align-middle pt-2">
         <h1 className=" text-3xl font-bold mx-auto">QR Generator</h1>
         {children}
       </body>
