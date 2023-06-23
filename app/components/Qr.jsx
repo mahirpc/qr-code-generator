@@ -21,6 +21,8 @@ const Qr = () => {
       link.click();
     });
   };
+  console.log("qr"+qrValue)
+  console.log("def"+defaultValue)
 
   return (
     <section className="flex flex-col items-center w-64">
@@ -48,20 +50,23 @@ const Qr = () => {
             />
           </div>
         </div>
-        <div className="flex flex-col bg-amber-200 w-10 mt-4 ml-2 
-                        rounded-md text-center font-mono font-semibold
-                        text-md border border-gray-700"
-            onClick={handleDownload}
-        >
-          <p>D</p>
-          <p>O</p>
-          <p>W</p>
-          <p>N</p>
-          <p>L</p>
-          <p>O</p>
-          <p>A</p>
-          <p>D</p>
-        </div>
+        { ( (qrValue !== "Nothing encoded" && qrValue !== defaultValue) && 
+            ( qrValue.length>0 || (defaultValue == "" && qrValue.length>0) )) &&
+          <div className="flex flex-col bg-amber-200 w-10 mt-4 ml-2 
+                          rounded-md text-center font-mono font-semibold
+                          text-md border border-gray-700"
+              onClick={handleDownload}
+          >
+            <p>D</p>
+            <p>O</p>
+            <p>W</p>
+            <p>N</p>
+            <p>L</p>
+            <p>O</p>
+            <p>A</p>
+            <p>D</p>
+          </div>
+        }
       </div>
       <div className="flex flex-row justify-center mt-5">
       <svg
@@ -72,7 +77,7 @@ const Qr = () => {
           onClick={() => {
             setDefaultValue("https://www.linkedin.com/in/");
             inputRef.current.value = "";
-            setQrValue(defaultValue)
+            setQrValue("https://www.linkedin.com/in/")
             labelRef.current.innerHTML = "Enter the username";
             inputRef.current.placeholder = "eg: first-name-last-name";
           }}
@@ -89,7 +94,7 @@ const Qr = () => {
           onClick={() => {
             setDefaultValue("https://github.com/");
             inputRef.current.value = "";
-            setQrValue(defaultValue)
+            setQrValue("https://github.com/")
             labelRef.current.innerHTML = "Enter the username";
             inputRef.current.placeholder = "eg: yourname";
           }}
@@ -105,7 +110,7 @@ const Qr = () => {
           onClick={() => {
             setDefaultValue("https://wa.me/");
             inputRef.current.value = "";
-            setQrValue(defaultValue)
+            setQrValue("https://wa.me/")
             labelRef.current.innerHTML = "Enter the mobile number";
             inputRef.current.placeholder = "eg: 919048959016";
           }}
@@ -121,7 +126,7 @@ const Qr = () => {
           onClick={() => {
             setDefaultValue("https://youtube.com/");
             inputRef.current.value = "";
-            setQrValue(defaultValue)
+            setQrValue("https://youtube.com/")
             labelRef.current.innerHTML = "Enter the channel name";
             inputRef.current.placeholder = "eg: @channelname";
           }}
@@ -137,7 +142,7 @@ const Qr = () => {
           onClick={() => {
             setDefaultValue("https://www.instagram.com/");
             inputRef.current.value = "";
-            setQrValue(defaultValue)
+            setQrValue("https://www.instagram.com/")
             labelRef.current.innerHTML = "Enter the username";
             inputRef.current.placeholder = "eg: your_username";
           }}
@@ -153,7 +158,7 @@ const Qr = () => {
           onClick={() => {
             setDefaultValue("upi://pay?pa=");
             inputRef.current.value = "";
-            setQrValue(defaultValue)
+            setQrValue("upi://pay?pa=")
             labelRef.current.innerHTML = "Enter UPI id";
             inputRef.current.placeholder = "eg: yourname@upi";
           }}
@@ -174,7 +179,13 @@ const Qr = () => {
           ref={inputRef}
           id="qrText"
           placeholder="Enter the content..."
-          onChange={(e) => setQrValue(defaultValue + e.target.value)}
+          onChange={(e) => {
+            if(e.target.value === "") {
+              setQrValue("")
+            } else{              
+              setQrValue(defaultValue + e.target.value)
+            }
+          }}
         />
       </div>
     </section>
