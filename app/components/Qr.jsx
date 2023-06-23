@@ -4,6 +4,7 @@ import QRCode from "react-qr-code";
 import { useState, useRef } from "react";
 import UpiIcon from "@/public/icons/upi.png"
 import Image from "next/image";
+import domtoimage from 'dom-to-image'
 
 const Qr = () => {
   const [qrValue, setQrValue] = useState("Nothing encoded");
@@ -11,6 +12,16 @@ const Qr = () => {
   const labelRef = useRef(null);
   const inputRef = useRef(null);
   const qrRef = useRef(null);
+
+  const handleDownload = () => {
+    domtoimage.toJpeg(qrRef.current).then((dataUrl) => {
+      const link = document.createElement('a');
+      link.download = 'meme.jpeg';
+      link.href = dataUrl;
+      link.click();
+    });
+  };
+
   return (
     <section className="flex flex-col items-center w-64">
       <div className="mt-2 px-2 md:mt-3">
@@ -20,19 +31,33 @@ const Qr = () => {
           to encode your social media links.
         </p>
       </div>
-      <div
-        className="w-48 h-48 bg-white border-2 border-slate-950 
-                      mt-4 rounded-md p-1"
-        ref={qrRef}
-      >
-        <QRCode
-          className="rounded-md"
-          value={qrValue}
-          size={180}
-          bgColor="#FFFFFF"
-          fgColor="#000000"
-          level="L"
-        />
+      <div className="flex flex-row">
+        <div
+          className="w-48 h-48 bg-white border-2 border-slate-950 
+                        mt-4 rounded-md p-1"
+          ref={qrRef}
+        >
+          <QRCode
+            className="rounded-md"
+            value={qrValue}
+            size={180}
+            bgColor="#FFFFFF"
+            fgColor="#000000"
+            level="L"
+          />
+        </div>
+        <div className="flex flex-col bg-amber-200 w-10 mt-4 ml-2 
+                        rounded-md text-center font-mono font-semibold
+                        text-md border border-gray-700">
+          <p>D</p>
+          <p>O</p>
+          <p>W</p>
+          <p>N</p>
+          <p>L</p>
+          <p>O</p>
+          <p>A</p>
+          <p>D</p>
+        </div>
       </div>
       <div className="flex flex-row justify-center mt-5">
       <svg
