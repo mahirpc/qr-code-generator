@@ -21,8 +21,6 @@ const Qr = () => {
       link.click();
     });
   };
-  console.log("qr" + qrValue);
-  console.log("def" + defaultValue);
 
   return (
     <section className="flex flex-col items-center w-64">
