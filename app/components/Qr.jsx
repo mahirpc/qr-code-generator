@@ -16,7 +16,7 @@ const Qr = () => {
   const handleDownload = () => {
     domtoimage.toJpeg(qrRef.current).then((dataUrl) => {
       const link = document.createElement('a');
-      link.download = 'meme.jpeg';
+      link.download = 'qr.jpeg';
       link.href = dataUrl;
       link.click();
     });
@@ -32,23 +32,27 @@ const Qr = () => {
         </p>
       </div>
       <div className="flex flex-row">
-        <div
-          className="w-48 h-48 bg-white border-2 border-slate-950 
-                        mt-4 rounded-md p-1"
-          ref={qrRef}
-        >
-          <QRCode
-            className="rounded-md"
-            value={qrValue}
-            size={180}
-            bgColor="#FFFFFF"
-            fgColor="#000000"
-            level="L"
-          />
+        <div ref={qrRef}>
+          <div
+            className="w-50 h-50 bg-white border-2 border-slate-950 
+                          mt-4 rounded-md p-2"
+            
+          >
+            <QRCode
+              className="rounded-md"
+              value={qrValue}
+              size={180}
+              bgColor="#FFFFFF"
+              fgColor="#000000"
+              level="L"
+            />
+          </div>
         </div>
         <div className="flex flex-col bg-amber-200 w-10 mt-4 ml-2 
                         rounded-md text-center font-mono font-semibold
-                        text-md border border-gray-700">
+                        text-md border border-gray-700"
+            onClick={handleDownload}
+        >
           <p>D</p>
           <p>O</p>
           <p>W</p>
