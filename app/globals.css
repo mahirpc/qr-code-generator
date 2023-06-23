@@ -27,3 +27,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.reverse-bg-custom{
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-start-rgb))
+    )
+    rgb(var(--background-end-rgb));
+}
