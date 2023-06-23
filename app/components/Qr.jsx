@@ -165,7 +165,6 @@ const Qr = () => {
         <svg
           version="1.0"
           xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
           className="h-7 w-7 mr-3"
           viewBox="0 0 512.000000 512.000000"
           onClick={() => {
